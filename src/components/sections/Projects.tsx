@@ -112,12 +112,12 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+                className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center"
               >
                 {/* Image card block */}
                 <div
-                  className={`lg:col-span-6 relative group ${
-                    isEven ? 'lg:order-1' : 'lg:order-2'
+                  className={`md:col-span-6 relative group ${
+                    isEven ? 'md:order-1' : 'md:order-2'
                   }`}
                 >
                   {/* Glowing border card wrapper */}
@@ -186,8 +186,8 @@ export default function Projects() {
 
                 {/* Info and bullet points block */}
                 <div
-                  className={`lg:col-span-6 text-left ${
-                    isEven ? 'lg:order-2' : 'lg:order-1'
+                  className={`md:col-span-6 text-left ${
+                    isEven ? 'md:order-2' : 'md:order-1'
                   }`}
                 >
                   <div className="space-y-6">

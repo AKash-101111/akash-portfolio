@@ -141,7 +141,7 @@ export default function About() {
                     )}
                     {stat.decimal ? stat.suffix : ''}
                   </div>
-                  <div className="text-[10px] text-[#9CA3AF] font-bold tracking-widest uppercase mt-2">
+                  <div className="text-[10px] text-[#9CA3AF] font-bold tracking-wider sm:tracking-widest uppercase mt-2">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -185,7 +185,7 @@ export default function About() {
                   <p className="text-sm text-white mt-1">
                     Computer Science and Engineering
                   </p>
-                  <div className="flex justify-between items-center mt-4 text-[10px] font-mono text-[#9CA3AF]">
+                  <div className="flex flex-col sm:flex-row sm:justify-between gap-3 sm:items-center mt-4 text-[10px] font-mono text-[#9CA3AF]">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>2024 -- 2028</span>

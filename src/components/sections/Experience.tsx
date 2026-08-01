@@ -57,7 +57,7 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative pl-8 sm:pl-12 border-l border-gradient-to-b from-[#3B82F6] via-[#22D3EE]/30 to-[#111827] pb-12 last:pb-0"
+              className="relative pl-6 sm:pl-12 border-l border-gradient-to-b from-[#3B82F6] via-[#22D3EE]/30 to-[#111827] pb-12 last:pb-0"
             >
               {/* Animated node dot with pulsing core */}
               <div className="absolute left-0 top-2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#050816] border-2 border-[#22D3EE] flex items-center justify-center shadow-[0_0_15px_rgba(34,211,238,0.45)] z-10">
@@ -65,7 +65,7 @@ export default function Experience() {
               </div>
 
               {/* Box card */}
-              <div className="p-6 sm:p-8 rounded-2xl border border-white/5 bg-[#111827]/40 hover:bg-[#111827]/60 hover:border-[#22D3EE]/20 transition-all duration-300 relative overflow-hidden group">
+              <div className="p-5 sm:p-8 rounded-2xl border border-white/5 bg-[#111827]/40 hover:bg-[#111827]/60 hover:border-[#22D3EE]/20 transition-all duration-300 relative overflow-hidden group">
                 {/* Visual gradient backdrop */}
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-[#3B82F6]/5 rounded-full blur-3xl group-hover:bg-[#22D3EE]/10 transition-colors pointer-events-none" />
 

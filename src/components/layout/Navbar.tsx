@@ -18,6 +18,17 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
 
@@ -53,7 +64,7 @@ export default function Navbar() {
           : 'py-5 bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-50">
         {/* Brand / Logo */}
         <a href="#home" className="flex items-center gap-2.5 group">
           <div className="w-8.5 h-8.5 rounded-lg bg-gradient-to-tr from-[#3B82F6] to-[#22D3EE] flex items-center justify-center transition-transform duration-300 group-hover:rotate-6 shadow-[0_0_12px_rgba(34,211,238,0.2)]">
@@ -98,7 +109,7 @@ export default function Navbar() {
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-lg text-[#9CA3AF] hover:text-white transition-colors"
+          className="md:hidden p-2 rounded-lg text-[#9CA3AF] hover:text-white transition-colors cursor-pointer"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-5.5 h-5.5" /> : <Menu className="w-5.5 h-5.5" />}
@@ -107,11 +118,11 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`md:hidden fixed inset-x-0 top-[60px] bottom-0 bg-[#050816]/95 backdrop-blur-xl border-t border-[#111827] transition-all duration-300 ease-in-out z-45 ${
-          isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+        className={`md:hidden fixed inset-0 bg-[#050816]/98 backdrop-blur-xl transition-all duration-300 ease-in-out z-40 flex flex-col justify-center items-center ${
+          isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div className="flex flex-col p-6 gap-5">
+        <div className="flex flex-col items-center p-6 gap-6 w-full max-w-xs">
           {navLinks.map((link) => {
             const id = link.href.substring(1)
             const isActive = activeSection === id
@@ -120,10 +131,10 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-base font-semibold tracking-wide uppercase border-l-2 pl-4 transition-all duration-300 ${
+                className={`text-lg font-bold tracking-wider uppercase transition-all duration-300 ${
                   isActive
-                    ? 'text-[#22D3EE] border-[#22D3EE]'
-                    : 'text-[#9CA3AF] border-transparent hover:text-white hover:border-gray-500'
+                    ? 'text-[#22D3EE] border-b-2 border-[#22D3EE] pb-1'
+                    : 'text-[#9CA3AF] hover:text-white'
                 }`}
               >
                 {link.name}
@@ -133,7 +144,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setIsOpen(false)}
-            className="w-full text-center py-3.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] text-white font-bold uppercase tracking-wider text-xs"
+            className="w-full text-center py-3.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] text-white font-bold uppercase tracking-wider text-xs mt-4 shadow-[0_0_20px_rgba(34,211,238,0.2)]"
           >
             Let's Talk
           </a>

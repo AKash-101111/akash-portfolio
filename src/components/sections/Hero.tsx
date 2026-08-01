@@ -133,16 +133,16 @@ export default function Hero() {
         <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full radial-glow pointer-events-none opacity-45" />
         <div className="absolute bottom-1/3 right-1/4 translate-x-1/2 translate-y-1/2 w-[550px] h-[550px] rounded-full radial-glow-cyan pointer-events-none opacity-45" />
 
-        <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
+        <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center z-10">
           {/* Left Content */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#22D3EE]/20 bg-[#22D3EE]/10 text-[#22D3EE] text-xs font-bold tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(34,211,238,0.15)]"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#22D3EE]/20 bg-[#22D3EE]/10 text-[#22D3EE] text-xs font-bold tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(34,211,238,0.15)] animate-pulse"
             >
-              <Sparkles className="w-4 h-4 animate-pulse" />
+              <Sparkles className="w-4 h-4" />
               <span>AI & Software Engineering</span>
             </motion.div>
 
@@ -158,6 +158,23 @@ export default function Hero() {
               </span>
             </motion.h1>
 
+            {/* Profile Image for Mobile/Tablet (Visible only below lg breakpoint) */}
+            <div className="lg:hidden flex justify-center items-center relative my-6 self-center w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72">
+              <HeroProfileParticles />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#3B82F6] via-[#22D3EE] to-[#3B82F6] opacity-14 blur-2xl animate-pulse pointer-events-none" />
+              <div className="absolute w-[98%] h-[98%] rounded-full border border-dashed border-[#22D3EE]/25 pointer-events-none animate-[spin_25s_linear_infinite]" />
+              <div className="relative w-[90%] h-[90%] rounded-full p-[2px] bg-gradient-to-tr from-[#3B82F6] via-[#22D3EE] to-[#3b82f6] shadow-[0_0_16px_rgba(34,211,238,0.15)] flex items-center justify-center overflow-hidden">
+                <div className="w-full h-full rounded-full bg-[#050816] overflow-hidden relative">
+                  <img
+                    src={myPhoto}
+                    alt="Akash N"
+                    className="w-full h-full object-cover grayscale-[15%]"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] opacity-40 pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -172,31 +189,31 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4 mb-10 w-full"
+              className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10 w-full"
             >
-              <MagneticButton className="shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all rounded-lg">
+              <MagneticButton className="w-full sm:w-auto shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] transition-all rounded-lg">
                 <a
                   href="#projects"
-                  className="px-6 py-3.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] text-white font-semibold flex items-center gap-2 group text-xs uppercase tracking-wider"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] text-white font-semibold flex items-center justify-center gap-2 group text-xs uppercase tracking-wider"
                 >
                   View Projects
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </MagneticButton>
 
-              <MagneticButton className="rounded-lg">
+              <MagneticButton className="w-full sm:w-auto rounded-lg">
                 <button
                   onClick={openModal}
-                  className="px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-gray-200 hover:text-white hover:bg-white/[0.08] hover:border-white/20 transition-all font-semibold text-xs uppercase tracking-wider cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-gray-200 hover:text-white hover:bg-white/[0.08] hover:border-white/20 transition-all font-semibold text-xs uppercase tracking-wider cursor-pointer"
                 >
                   View Resume
                 </button>
               </MagneticButton>
 
-              <MagneticButton className="rounded-lg">
+              <MagneticButton className="w-full sm:w-auto rounded-lg">
                 <a
                   href="#contact"
-                  className="px-6 py-3.5 rounded-lg border border-[#3B82F6]/30 bg-[#3B82F6]/5 text-[#22D3EE] hover:bg-[#3B82F6]/15 hover:border-[#22D3EE]/40 transition-all font-semibold text-xs uppercase tracking-wider"
+                  className="w-full sm:w-auto px-6 py-3.5 rounded-lg border border-[#3B82F6]/30 bg-[#3B82F6]/5 text-[#22D3EE] hover:bg-[#3B82F6]/15 hover:border-[#22D3EE]/40 transition-all font-semibold text-xs uppercase tracking-wider text-center"
                 >
                   Contact Me
                 </a>
@@ -208,7 +225,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex items-center gap-6 pt-4 border-t border-white/5 w-full text-[#9CA3AF]"
+              className="flex flex-col sm:flex-row sm:items-center gap-6 pt-6 border-t border-white/5 w-full text-[#9CA3AF]"
             >
               <div className="flex items-center gap-4">
                 <a
@@ -238,7 +255,7 @@ export default function Hero() {
                 </a>
               </div>
 
-              <div className="h-4 w-px bg-white/10" />
+              <div className="hidden sm:block h-4 w-px bg-white/10" />
 
               <div className="flex items-center gap-2 text-xs text-[#22D3EE] font-mono uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981]" />
@@ -247,8 +264,8 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Frame (Glow Frame & Orbiting AI tags) */}
-          <div className="lg:col-span-5 flex justify-center items-center relative mt-10 lg:mt-0">
+          {/* Right Frame (Glow Frame & Orbiting AI tags) - Desktop Only */}
+          <div className="hidden lg:flex lg:col-span-5 justify-center items-center relative mt-10 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

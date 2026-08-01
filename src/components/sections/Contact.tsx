@@ -132,7 +132,7 @@ export default function Contact() {
                         <span className="text-[10px] text-gray-500 font-bold uppercase font-mono block">
                           {info.label}
                         </span>
-                        <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors block truncate">
+                        <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors block break-all whitespace-normal">
                           {info.value}
                         </span>
                       </div>
