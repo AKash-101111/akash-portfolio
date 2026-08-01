@@ -56,7 +56,7 @@ export default function Contact() {
     {
       label: 'Curriculum Vitae',
       value: 'Preview / Download Resume',
-      href: '/Akash_Resume.pdf',
+      href: `/Akash_Resume.pdf?v=${Date.now()}`,
       icon: FileText,
       download: true
     }

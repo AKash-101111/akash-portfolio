@@ -1,33 +1,33 @@
 import { motion } from 'framer-motion'
-import { Trophy, Users, Sparkles, Award } from 'lucide-react'
+import { Trophy, Sparkles, Award } from 'lucide-react'
 
 const achievements = [
   {
     title: 'Best Innovation Award',
     event: 'Techno Sprint Hackathon',
     organization: 'Sri Sairam Institute of Technology',
-    description: 'Awarded for designing and presenting an AI-powered software solution. Recognized for exceptional engineering innovation and rapid prototyping.',
+    description: 'Received the Best Innovation Award for designing and presenting an AI-driven software solution.',
     icon: Trophy,
     color: 'from-[#3B82F6] to-[#22D3EE]',
-    badge: '1st Place Innovation'
+    badge: 'Best Innovation'
   },
   {
-    title: 'Best Team Award',
-    event: 'MSEC Joint Hackathon',
-    organization: 'Engineering College Tech Fest',
-    description: 'Recognized for outstanding teamwork while delivering an AI-powered application. Collaborated effectively across system designs under intense constraints.',
-    icon: Users,
-    color: 'from-[#22D3EE] to-[#3B82F6]',
-    badge: 'Team Excellence'
-  },
-  {
-    title: 'Top 5 Finalist',
-    event: 'HackInThym 24-Hour Hackathon',
-    organization: 'State-Level Hackathon',
-    description: 'Ranked among 100+ participating teams after developing a complete full-stack AI solution within 24 hours.',
+    title: 'Hackathon Top Finishes',
+    event: 'National Hackathons',
+    organization: 'Various Competitions',
+    description: 'Secured top finishes across multiple national hackathons and technical competitions by developing AI-powered and full-stack software solutions under strict time constraints.',
     icon: Sparkles,
+    color: 'from-[#22D3EE] to-[#3B82F6]',
+    badge: 'Top Competitor'
+  },
+  {
+    title: 'Machine Learning Specialization',
+    event: 'Stanford University & DeepLearning.AI',
+    organization: 'Coursera',
+    description: 'Completed the Machine Learning Specialization covering machine learning algorithms, deep learning concepts, and practical AI implementations.',
+    icon: Award,
     color: 'from-[#3B82F6] to-[#22D3EE]',
-    badge: 'Top 5 %'
+    badge: 'Specialization'
   }
 ]
 

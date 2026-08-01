@@ -17,7 +17,7 @@ export default function Experience() {
       highlights: [
         { icon: Users, text: 'Led 10-person engineering studio' },
         { icon: Activity, text: 'Delivered 15+ production builds' },
-        { icon: Settings, text: 'Scaled revenue from 0 to Rs. 50k+' }
+        { icon: Settings, text: 'Built workflow automation tools' }
       ]
     }
   ]

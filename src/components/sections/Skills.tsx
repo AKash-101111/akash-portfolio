@@ -50,10 +50,10 @@ const skillCategories = [
       'Scikit-learn',
       'CNN',
       'Computer Vision',
-      'Retrieval-Augmented Generation (RAG)',
-      'Ollama',
-      'Small Language Models',
-      'AI Agents'
+      'Medical Image Analysis',
+      'RAG',
+      'SLMs',
+      'Ollama'
     ]
   }
 ]

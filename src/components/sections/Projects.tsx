@@ -15,15 +15,16 @@ const projects = [
   {
     title: 'AutoPentest AI',
     subtitle: 'AI-Powered Security Assistant',
-    description: 'Designed and developed an AI penetration testing assistant to streamline reconnaissance, vulnerability assessment, and security report generation through an intelligent, guided workflow.',
-    tags: ['React.js', 'TypeScript', 'Tailwind CSS', 'AI / LLMs', 'Vite', 'Git'],
+    description: 'Designed and developed an AI-powered penetration testing assistant to streamline reconnaissance, vulnerability assessment, and security report generation through an intelligent, guided workflow.',
+    tags: ['React.js', 'TypeScript', 'Tailwind CSS', 'AI', 'Git', 'Vite'],
     icon: ShieldCheck,
     color: 'from-[#3B82F6] to-[#22D3EE]',
     image: autopentestImg,
     bullets: [
-      'Engineered a modular React and TypeScript frontend with responsive dashboards and reusable components, improving developer velocity and user experience.',
+      'Designed and developed an AI-powered penetration testing assistant to streamline reconnaissance, vulnerability assessment, and security report generation through an intelligent, guided workflow.',
+      'Engineered a modular React and TypeScript frontend with responsive dashboards and reusable components, resulting in a scalable, maintainable project architecture and improved user experience.',
       'Integrated AI-assisted security analysis and automated reporting to reduce manual penetration testing effort and increase overall workflow efficiency.',
-      'Applied modern software engineering practices: component-based development, Git version control, and a fully deployment-ready architecture.'
+      'Applied modern software engineering practices, including component-based development, Git version control, responsive design, and deployment-ready architecture.'
     ],
     github: 'https://github.com/AKash-101111',
     demo: '#'
@@ -32,14 +33,15 @@ const projects = [
     title: 'SkillSnap AI',
     subtitle: 'AI Resume Assessment Engine',
     description: 'Built an AI-powered resume analysis platform that evaluates resumes and generates ATS-style scoring to assist candidate profile assessment and hiring readiness.',
-    tags: ['Python', 'AI / LLMs', 'React', 'Streamlit', 'Resume Parsing'],
+    tags: ['Python', 'AI', 'React', 'Next.js'],
     icon: FileText,
     color: 'from-[#22D3EE] to-[#3B82F6]',
     image: skillsnapImg,
     bullets: [
+      'Built an AI-powered resume analysis platform that evaluates resumes and generates ATS-style scoring to assist candidate profile assessment and hiring readiness.',
       'Implemented intelligent resume parsing and automated feedback to improve resume quality assessment for candidates.',
       'Designed an interactive dashboard delivering resume scoring, candidate insights, and structured evaluation reports.',
-      'Collaborated within a hackathon team to prototype, develop, and deliver a functional AI-powered application under tight time constraints.'
+      'Collaborated within a hackathon team to rapidly prototype, develop, and deliver a functional AI-powered application under time constraints.'
     ],
     github: 'https://github.com/AKash-101111',
     demo: '#'
@@ -47,15 +49,15 @@ const projects = [
   {
     title: 'Brain Tumor Prediction',
     subtitle: 'Medical Computer Vision Pipeline',
-    description: 'Developed a convolutional neural network (CNN) using TensorFlow and Keras to classify brain MRI images across multiple diagnostic categories, achieving 99% classification accuracy.',
-    tags: ['Python', 'TensorFlow', 'Keras', 'CNN', 'Streamlit', 'Medical Vision'],
+    description: 'Developed a convolutional neural network using TensorFlow and Keras to classify brain MRI images across multiple diagnostic categories, achieving 99% classification accuracy.',
+    tags: ['Python', 'TensorFlow', 'Keras', 'CNN', 'Streamlit'],
     icon: BrainCircuit,
     color: 'from-[#3B82F6] to-[#22D3EE]',
     image: braintumorImg,
     bullets: [
-      'Achieved 99% classification accuracy on brain MRI images across diagnostic categories.',
+      'Developed a convolutional neural network using TensorFlow and Keras to classify brain MRI images across multiple diagnostic categories, achieving 99% classification accuracy.',
       'Built an end-to-end machine learning pipeline covering image preprocessing, model training, evaluation, and real-time inference.',
-      'Designed and deployed a Streamlit web application enabling users to upload scans and receive instant predictions.'
+      'Designed and deployed a Streamlit-based web application enabling users to upload MRI scans and receive instant, AI-driven predictions.'
     ],
     github: 'https://github.com/AKash-101111',
     demo: '#'

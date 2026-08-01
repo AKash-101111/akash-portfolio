@@ -97,6 +97,31 @@ function HeroProfileParticles() {
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [resumeUrl, setResumeUrl] = useState('')
+
+  const openModal = async () => {
+    try {
+      const response = await fetch(`/Akash_Resume.pdf?v=${Date.now()}`, {
+        cache: 'no-store'
+      })
+      const blob = await response.blob()
+      const objectUrl = URL.createObjectURL(blob)
+      setResumeUrl(objectUrl)
+      setIsModalOpen(true)
+    } catch (error) {
+      console.error('Error loading resume PDF:', error)
+      setResumeUrl(`/Akash_Resume.pdf?v=${Date.now()}`)
+      setIsModalOpen(true)
+    }
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    if (resumeUrl && resumeUrl.startsWith('blob:')) {
+      URL.revokeObjectURL(resumeUrl)
+    }
+    setResumeUrl('')
+  }
 
   return (
     <>
@@ -161,7 +186,7 @@ export default function Hero() {
 
               <MagneticButton className="rounded-lg">
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModal}
                   className="px-6 py-3.5 rounded-lg border border-white/10 bg-white/[0.03] text-gray-200 hover:text-white hover:bg-white/[0.08] hover:border-white/20 transition-all font-semibold text-xs uppercase tracking-wider cursor-pointer"
                 >
                   View Resume
@@ -283,7 +308,7 @@ export default function Hero() {
                   </h3>
                 </div>
                 <button
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={closeModal}
                   className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
                   aria-label="Close modal"
                 >
@@ -293,24 +318,27 @@ export default function Hero() {
 
               {/* PDF Preview Content */}
               <div className="flex-1 bg-[#050816] overflow-hidden p-2 relative">
-                <iframe
-                  src="/Akash_Resume.pdf#toolbar=0"
-                  className="w-full h-full border-none rounded-lg"
-                  title="Akash N Resume Preview"
-                />
+                {resumeUrl && (
+                  <iframe
+                    key={resumeUrl}
+                    src={resumeUrl}
+                    className="w-full h-full border-none rounded-lg"
+                    title="Akash N Resume Preview"
+                  />
+                )}
               </div>
 
               {/* Modal Footer */}
               <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-white/5 bg-[#0D1117]">
                 <button
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={closeModal}
                   className="px-4.5 py-2.5 rounded-lg text-xs font-semibold text-[#9CA3AF] hover:text-white hover:bg-white/5 transition-colors cursor-pointer uppercase tracking-wider"
                 >
                   Close
                 </button>
 
                 <a
-                  href="/Akash_Resume.pdf"
+                  href={resumeUrl}
                   download="Akash_Resume.pdf"
                   className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#22D3EE] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] transition-all"
                 >
