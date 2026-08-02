@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight, Mail, Sparkles, CheckCircle2, Download, X } from 'lucide-react'
+import { ArrowUpRight, Mail, Sparkles, CheckCircle2, Download, X, FileText, ExternalLink } from 'lucide-react'
 import MagneticButton from '../ui/MagneticButton'
 import myPhoto from '../../assets/my.jpg'
 
@@ -18,8 +18,6 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <circle cx="4" cy="4" r="2" />
   </svg>
 )
-
-import { useEffect, useRef } from 'react'
 
 function HeroProfileParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -98,6 +96,19 @@ function HeroProfileParticles() {
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [resumeUrl, setResumeUrl] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera
+      const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)
+      const isSmallScreen = window.innerWidth < 1024
+      setIsMobile(isMobileUA || isSmallScreen)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const openModal = async () => {
     try {
@@ -129,12 +140,10 @@ export default function Hero() {
         id="home"
         className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden"
       >
-        {/* Background glows */}
         <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full radial-glow pointer-events-none opacity-45" />
         <div className="absolute bottom-1/3 right-1/4 translate-x-1/2 translate-y-1/2 w-[550px] h-[550px] rounded-full radial-glow-cyan pointer-events-none opacity-45" />
 
         <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center z-10">
-          {/* Left Content */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -158,7 +167,6 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            {/* Profile Image for Mobile/Tablet (Visible only below lg breakpoint) */}
             <div className="lg:hidden flex justify-center items-center relative my-6 self-center w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72">
               <HeroProfileParticles />
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#3B82F6] via-[#22D3EE] to-[#3B82F6] opacity-14 blur-2xl animate-pulse pointer-events-none" />
@@ -335,13 +343,47 @@ export default function Hero() {
 
               {/* PDF Preview Content */}
               <div className="flex-1 bg-[#050816] overflow-hidden p-2 relative">
-                {resumeUrl && (
-                  <iframe
-                    key={resumeUrl}
-                    src={resumeUrl}
-                    className="w-full h-full border-none rounded-lg"
-                    title="Akash N Resume Preview"
-                  />
+                {isMobile ? (
+                  <div className="flex flex-col items-center justify-center h-full text-center px-6 py-8 bg-[#050816]">
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-[#3B82F6]/20 blur-xl rounded-full" />
+                      <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#22D3EE] border border-white/10 shadow-lg shadow-[#3B82F6]/10">
+                        <FileText className="w-10 h-10 text-white" />
+                      </div>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-2">Akash_Resume.pdf</h4>
+                    <p className="text-sm text-gray-400 max-w-xs mb-8">
+                      Preview is not supported on some mobile browsers.
+                    </p>
+                    <div className="flex flex-col gap-3.5 w-full max-w-xs">
+                      <a
+                        href={resumeUrl || "/Akash_Resume.pdf"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-black font-semibold hover:bg-white/90 transition-all shadow-[0_4px_20px_rgba(255,255,255,0.15)] cursor-pointer text-sm"
+                      >
+                        <ExternalLink className="w-4.5 h-4.5" />
+                        <span>Open Resume</span>
+                      </a>
+                      <a
+                        href={resumeUrl || "/Akash_Resume.pdf"}
+                        download="Akash_Resume.pdf"
+                        className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/10 bg-white/5 text-white font-semibold hover:bg-white/10 transition-all cursor-pointer text-sm"
+                      >
+                        <Download className="w-4.5 h-4.5" />
+                        <span>Download PDF</span>
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  resumeUrl && (
+                    <iframe
+                      key={resumeUrl}
+                      src={resumeUrl}
+                      className="w-full h-full border-none rounded-lg"
+                      title="Akash N Resume Preview"
+                    />
+                  )
                 )}
               </div>
 
